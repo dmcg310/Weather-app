@@ -29,7 +29,6 @@ async function getWeather(city) {
 	const data = await response.json();
 
 	const weatherMain = data.weather[0].main;
-	const weatherDescription = data.weather[0].description;
 	const temp = data.main.temp;
 	const feelsLike = data.main.feels_like;
 	const tempMin = data.main.temp_min;
@@ -38,17 +37,7 @@ async function getWeather(city) {
 	const windSpeed = data.wind.speed;
 	const name = data.name;
 
-	dom(
-		weatherMain,
-		weatherDescription,
-		temp,
-		feelsLike,
-		tempMin,
-		tempMax,
-		humidity,
-		windSpeed,
-		name
-	);
+	dom(weatherMain, temp, feelsLike, tempMin, tempMax, humidity, windSpeed, name);
 }
 
 export { getUserSelectedCity, getWeather };
