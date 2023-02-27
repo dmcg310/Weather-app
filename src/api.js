@@ -1,3 +1,5 @@
+import { dom } from "./dom.js";
+
 function getUserSelectedCity() {
   const form = document.getElementById("form");
 
@@ -17,16 +19,26 @@ async function getWeather(city) {
   const data = await response.json();
 
   const weatherMain = data.weather[0].main;
-  const weaherDescription = data.weather[0].description;
+  const weatherDescription = data.weather[0].description;
   const temp = data.main.temp;
   const feelsLike = data.main.feels_like;
   const tempMin = data.main.temp_min;
   const tempMax = data.main.temp_max;
   const humidity = data.main.humidity;
-  const windSpeed = data.wind.speed
+  const windSpeed = data.wind.speed;
   const name = data.name;
 
-  console.log(weatherMain, weaherDescription,temp, feelsLike, tempMin, tempMax, humidity, windSpeed, name);
+  dom(
+    weatherMain,
+    weatherDescription,
+    temp,
+    feelsLike,
+    tempMin,
+    tempMax,
+    humidity,
+    windSpeed,
+    name
+  );
 }
 
 export { getUserSelectedCity, getWeather };
