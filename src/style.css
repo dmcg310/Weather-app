@@ -1,0 +1,34 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: linear-gradient(
+		to top,
+		#0c3483 0%,
+		#a2b6df 100%,
+		#6b8cce 100%,
+		#a2b6df 100%
+	);
+	height: 100vh;
+}
+
+#container {
+	margin-top: 10vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+}
+
+#weather-information-container {
+	width: 40vw;
+	height: 40vh;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: 7px;
+	backdrop-filter: blur(14px);
+	background-color: rgba(255, 255, 255, 0.2);
+	padding: 10px;
+}
