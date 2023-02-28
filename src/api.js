@@ -6,7 +6,9 @@ function getUserSelectedCity() {
 
 	form.addEventListener("submit", (e) => {
 		e.preventDefault();
+
 		container.innerHTML = "";
+
 		const city = document.getElementById("user-city").value;
 		getWeather(city);
 	});
@@ -19,10 +21,26 @@ async function getWeather(city) {
 	);
 
 	if (!response.ok) {
-		const container = document.getElementById("weather-information-container");
-		const errorMessage = document.createElement("p");
-		errorMessage.textContent = "Please enter a valid city name";
-		container.appendChild(errorMessage);
+		const modal = document.getElementById("validation-error-modal");
+		modal.style.display = "block";
+
+		const closeBtn = document.getElementById("validation-error-modal-close");
+		closeBtn.addEventListener("click", () => {
+			modal.style.display = "none";
+		});
+
+		window.addEventListener("click", (e) => {
+			if (e.target == modal) {
+				modal.style.display = "none";
+			}
+		});
+
+		window.addEventListener("keydown", (e) => {
+			if (e.key === "Escape") {
+				modal.style.display = "none";
+			}
+		});
+
 		return;
 	}
 
